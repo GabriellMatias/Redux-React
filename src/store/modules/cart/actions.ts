@@ -1,10 +1,26 @@
-import { ProductProps } from './types'
+import { ActionTypes, ProductProps } from './types'
 
-export function addProductToCart(product: ProductProps) {
+export function addProductToCartRequest(product: ProductProps) {
 	return {
-		type: 'ADD_PRODUCT_TO_CART',
+		type: ActionTypes.addProductToCartRequest,
 		payload: {
 			product,
+		},
+	}
+}
+export function addProductToCartSuccess(product: ProductProps) {
+	return {
+		type: ActionTypes.addProductToCartSuccess,
+		payload: {
+			product,
+		},
+	}
+}
+export function addProductToCartFailure(productId: number) {
+	return {
+		type: ActionTypes.addProductToCartFailure,
+		payload: {
+			productId,
 		},
 	}
 }
